@@ -9,7 +9,7 @@
 - [x] Izraditi kontakt sekciju sa potvrđenom adresom, telefonom, emailom, Instagram profilom i radnim vremenom.
 - [x] Izraditi footer u strukturi reference sa mapom sajta, kontaktom i oznakom dostupnosti podataka.
 - [x] Dodati hover tranzicije, scroll anchor navigaciju i responzivne breakpointe za desktop/mobile.
-- [ ] Potvrditi zaseban logo fajl i zvanične brand boje sa klijentom; trenutno se koristi fallback wordmark i `[NEDOSTAJE]` oznaka.
+- [x] Ugraditi dostavljeni BG Gradnja logo u header i footer i uskladiti paletu sa crnom, zlatnom i srebrnom bojom logotipa.
 - [ ] Dodati tačne javne cijene samo ako ih klijent naknadno dostavi.
 
 

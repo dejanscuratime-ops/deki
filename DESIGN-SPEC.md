@@ -12,7 +12,8 @@
 ## Klijent: BG-GRADNJA DOO
 
 - **Potvrđeno:** Herceg Novi; adresa Svetozara Živojinovića bb, 85340; telefon 069/905-405; radno vrijeme pon–sub 07:00–21:00; Instagram `@bg.gradnja`; email `gvozdenovicblagoje982@gmail.com`; usluge: tesarski radovi, zidarski radovi, fasade, keramika; ocjena 5 (4 utiska); javne fotografije sa profila.
-- **Nije potvrđeno:** zaseban logo fajl, zvanične brand boje, javni cjenovnik. Prikazani su fallback wordmark, diskretna grafit/copper paleta inspirisana javnim profilnim vizualom i `[NEDOSTAJE]` za cijene/logo gdje je potrebno.
+- **Potvrđeno naknadno:** klijent je dostavio kvadratni logo sa motivima gradilišta, Herceg Novog i natpisom `BG GRADNJA`. Paleta sajta je usklađena sa logotipom: crna/grafitna osnova, zlatni akcent i srebrna tipografija.
+- **Nije potvrđeno:** javni cjenovnik. Cijene se i dalje označavaju kao `[NEDOSTAJE]`.
 
 ## Implementirani pravci
 
