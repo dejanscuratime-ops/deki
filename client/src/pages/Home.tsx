@@ -2,19 +2,33 @@ import { FormEvent, useState } from "react";
 import { ArrowUpRight, Building2, Check, Clock3, Hammer, Instagram, Mail, MapPin, Menu, Phone, Send, ShieldCheck, X } from "lucide-react";
 
 const services = [
-  { number: "01", title: "Grubi građevinski radovi", text: "Zidanje, betoniranje i ostali radovi od temelja do zatvaranja objekta.", icon: Hammer, photo: "/assets/project-3.jpg" },
-  { number: "02", title: "Tesarski radovi", text: "Priprema i montaža drvenih i čeličnih konstrukcija za vaš objekat.", icon: Building2, photo: "/assets/project-5.jpg" },
-  { number: "03", title: "Fasade", text: "Postavljanje fasadnih sistema, termoizolacija i završni slojevi.", icon: ShieldCheck, photo: "/assets/project-6.jpg" },
-  { number: "04", title: "Keramika", text: "Postavljanje keramičkih pločica i oblaganje površina.", icon: Check, photo: "/assets/project-4.jpg" },
+  { number: "01", title: "Grubi građevinski radovi", text: "Zidanje, betoniranje i ostali radovi od temelja do zatvaranja objekta.", icon: Hammer, photo: "/assets/drive-work-18.jpeg" },
+  { number: "02", title: "Tesarski radovi", text: "Priprema i montaža drvenih i čeličnih konstrukcija za vaš objekat.", icon: Building2, photo: "/assets/drive-work-02.jpeg" },
+  { number: "03", title: "Fasade", text: "Postavljanje fasadnih sistema, termoizolacija i završni slojevi.", icon: ShieldCheck, photo: "/assets/drive-work-14.jpeg" },
+  { number: "04", title: "Keramika", text: "Postavljanje keramičkih pločica i oblaganje površina.", icon: Check, photo: "/assets/drive-work-06.jpeg" },
 ];
 
 const gallery = [
-  { src: "/assets/project-1.jpg", alt: "Kompletni grubi građevinski radovi Herceg Novi" },
-  { src: "/assets/project-3.jpg", alt: "Grubi i završni građevinski radovi Herceg Novi" },
-  { src: "/assets/project-4.jpg", alt: "Građevinski radovi BG Gradnja" },
-  { src: "/assets/project-5.jpg", alt: "Radovi na objektu u Herceg Novom" },
-  { src: "/assets/project-6.jpg", alt: "Detalj građevinskih radova" },
-  { src: "/assets/project-7.jpg", alt: "BG Gradnja — radovi" },
+  { src: "/assets/drive-work-18.jpeg", alt: "Izgradnja objekta Herceg Novi — BG Gradnja" },
+  { src: "/assets/drive-work-02.jpeg", alt: "Tesarski radovi i drvena konstrukcija Herceg Novi" },
+  { src: "/assets/drive-work-06.jpeg", alt: "Keramičarski radovi Herceg Novi" },
+  { src: "/assets/drive-work-14.jpeg", alt: "Fasada na objektu Herceg Novi" },
+  { src: "/assets/drive-work-17.jpeg", alt: "Građevinski radovi na terasi Herceg Novi" },
+  { src: "/assets/drive-work-20.jpeg", alt: "Završeni građevinski radovi Herceg Novi" },
+  { src: "/assets/drive-work-01.jpeg", alt: "Pripremni građevinski radovi Herceg Novi" },
+  { src: "/assets/drive-work-03.jpeg", alt: "Drvena konstrukcija i tesarski radovi" },
+  { src: "/assets/drive-work-04.jpeg", alt: "Keramika u objektu Herceg Novi" },
+  { src: "/assets/drive-work-05.jpeg", alt: "Postavljanje keramičkih pločica" },
+  { src: "/assets/drive-work-07.jpeg", alt: "Pergola i tesarski radovi" },
+  { src: "/assets/drive-work-08.jpeg", alt: "Betoniranje terase Herceg Novi" },
+  { src: "/assets/drive-work-09.jpeg", alt: "Završni radovi u objektu" },
+  { src: "/assets/drive-work-10.jpeg", alt: "Zidarski i završni radovi" },
+  { src: "/assets/drive-work-11.jpeg", alt: "Unutrašnji završni radovi" },
+  { src: "/assets/drive-work-12.jpeg", alt: "Priprema zidova za završnu obradu" },
+  { src: "/assets/drive-work-13.jpeg", alt: "Fasaderski radovi na kući" },
+  { src: "/assets/drive-work-15.jpeg", alt: "Betonska terasa nakon radova" },
+  { src: "/assets/drive-work-16.jpeg", alt: "Završena terasa i objekat" },
+  { src: "/assets/drive-work-19.jpeg", alt: "Kameni i građevinski završni radovi" },
 ];
 
 const navItems = [["Naslovna", "top"], ["O nama", "about"], ["Usluge", "services"], ["Objekti", "gallery"], ["Kontakt", "contact"]];
