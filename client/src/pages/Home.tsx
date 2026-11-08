@@ -19,6 +19,28 @@ const gallery = [
 
 const navItems = [["Naslovna", "top"], ["O nama", "about"], ["Usluge", "services"], ["Objekti", "gallery"], ["Kontakt", "contact"]];
 
+const faqItems = [
+  ["Koje grube građevinske radove radi BG Gradnja?", "Radimo zidanje, betoniranje i druge grube radove na objektima u Herceg Novom i okolini. Obim posla se dogovara prije početka."],
+  ["Da li radite tesarske radove u Herceg Novom?", "Da. Radimo pripremu i montažu drvenih i čeličnih konstrukcija za objekte prema dogovoru i stanju na terenu."],
+  ["Da li BG Gradnja radi fasade i termoizolaciju?", "Radimo fasadne sisteme, termoizolaciju i završne slojeve. Za procjenu je potrebno poslati osnovne podatke o objektu."],
+  ["Da li radite keramiku i renoviranje kupatila?", "Radimo postavljanje keramičkih pločica i oblaganje površina. Cijena zavisi od površine, podloge i izabranog materijala."],
+];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "BG-GRADNJA DOO",
+  description: "Grubi građevinski, tesarski, fasaderski i keramičarski radovi u Herceg Novom i okolini.",
+  telephone: "+38269905405",
+  email: "gvozdenovicblagoje982@gmail.com",
+  address: { "@type": "PostalAddress", streetAddress: "Svetozara Živojinovića bb", postalCode: "85340", addressLocality: "Herceg Novi", addressCountry: "ME" },
+  areaServed: "Herceg Novi",
+  sameAs: ["https://www.instagram.com/bg.gradnja/"],
+  hasOfferCatalog: { "@type": "OfferCatalog", name: "Građevinske usluge", itemListElement: ["Grubi građevinski radovi", "Tesarski radovi", "Fasade", "Keramika"].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })) },
+};
+
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) };
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [lightbox, setLightbox] = useState<string | null>(null);
@@ -28,6 +50,8 @@ export default function Home() {
 
   return (
     <div className="site-shell" id="top">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <header className="site-header"><div className="container header-inner">
         <button className="brand" onClick={() => goTo("top")} aria-label="BG Gradnja naslovna"><img className="site-logo" src="/assets/bg-gradnja-logo.jpeg" alt="BG Gradnja — građevinska firma Herceg Novi - Igalo" /></button>
         <nav className={`desktop-nav ${menuOpen ? "is-open" : ""}`} aria-label="Glavna navigacija">{navItems.map(([label, id]) => <button key={id} onClick={() => goTo(id)}>{label}</button>)}<a className="header-cta" href="tel:+38269905405"><Phone size={15} /> Pozovite nas</a></nav>
@@ -45,7 +69,9 @@ export default function Home() {
 
         <section className="gallery-section" id="gallery"><div className="container"><div className="section-heading split-heading gallery-heading"><div><p className="eyebrow">04 / ZAVRŠENI OBJEKTI</p><h2>Radovi sa terena.</h2></div><p>Fotografije iz javne galerije BG-GRADNJA DOO. Kliknite na sliku za veći prikaz.</p></div><div className="gallery-grid">{gallery.map((item, index) => <button className={`gallery-item gallery-${index + 1}`} key={item.src} onClick={() => setLightbox(item.src)} aria-label={`Uvećaj: ${item.alt}`}><img src={item.src} alt={item.alt} /><span>{String(index + 1).padStart(2, "0")} <ArrowUpRight size={16} /></span></button>)}</div></div></section>
 
-        <section className="dark-section contact-section" id="contact"><div className="container contact-grid"><div><p className="eyebrow eyebrow-light">05 / KONTAKT</p><h2>Pošaljite<br /><span>upit.</span></h2><p className="contact-lead">Napišite šta treba da se radi, gdje je objekat i kako da vas kontaktiramo.</p><a className="button button-accent" href="tel:+38269905405">Pozovite 069/905-405 <Phone size={16} /></a></div><div className="contact-details"><div className="detail"><MapPin size={19} /><div><small>ADRESA</small><p>Svetozara Živojinovića bb<br />85340, Herceg Novi</p></div></div><div className="detail"><Clock3 size={19} /><div><small>RADNO VRIJEME</small><p>Ponedjeljak – Subota<br />07:00 – 21:00</p></div></div><div className="detail"><Mail size={19} /><div><small>EMAIL</small><p><a href="mailto:gvozdenovicblagoje982@gmail.com">gvozdenovicblagoje982@gmail.com</a></p></div></div><div className="detail"><Instagram size={19} /><div><small>INSTAGRAM</small><p><a href="https://www.instagram.com/bg.gradnja/" target="_blank" rel="noreferrer">@bg.gradnja</a></p></div></div></div><form className="inquiry-form" onSubmit={handleSubmit}><p className="form-title">Forma za upit</p>{submitted ? <div className="form-success"><Check size={18} /><p>Hvala. Upit je zabilježen.<br />Javite nam se i direktno na 069/905-405.</p></div> : <><div className="form-row"><label>Ime i prezime<input name="name" required placeholder="Vaše ime" /></label><label>Telefon<input name="phone" required placeholder="069 / ..." /></label></div><label>Email<input name="email" type="email" placeholder="vas@email.com" /></label><label>Vrsta radova<select name="service" defaultValue=""><option value="" disabled>Izaberite uslugu</option><option>Grubi građevinski radovi</option><option>Tesarski radovi</option><option>Fasade</option><option>Keramika</option></select></label><label>Poruka<textarea name="message" required placeholder="Kratak opis objekta i radova" rows={4} /></label><button className="button button-accent form-submit" type="submit">Pošalji upit <Send size={15} /></button></>}</form></div></section>
+        <section className="local-seo-section"><div className="container local-seo-grid"><div><p className="eyebrow">05 / ČESTA PITANJA</p><h2>Građevinski radovi u Herceg Novom.</h2><p className="local-seo-intro">Kratki odgovori o grubim radovima, tesariji, fasadama i keramici koje BG Gradnja radi na području Herceg Novog i okoline.</p></div><div className="faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></div></section>
+
+        <section className="dark-section contact-section" id="contact"><div className="container contact-grid"><div><p className="eyebrow eyebrow-light">06 / KONTAKT</p><h2>Pošaljite<br /><span>upit.</span></h2><p className="contact-lead">Napišite šta treba da se radi, gdje je objekat i kako da vas kontaktiramo.</p><a className="button button-accent" href="tel:+38269905405">Pozovite 069/905-405 <Phone size={16} /></a></div><div className="contact-details"><div className="detail"><MapPin size={19} /><div><small>ADRESA</small><p>Svetozara Živojinovića bb<br />85340, Herceg Novi</p></div></div><div className="detail"><Clock3 size={19} /><div><small>RADNO VRIJEME</small><p>Ponedjeljak – Subota<br />07:00 – 21:00</p></div></div><div className="detail"><Mail size={19} /><div><small>EMAIL</small><p><a href="mailto:gvozdenovicblagoje982@gmail.com">gvozdenovicblagoje982@gmail.com</a></p></div></div><div className="detail"><Instagram size={19} /><div><small>INSTAGRAM</small><p><a href="https://www.instagram.com/bg.gradnja/" target="_blank" rel="noreferrer">@bg.gradnja</a></p></div></div></div><form className="inquiry-form" onSubmit={handleSubmit}><p className="form-title">Forma za upit</p>{submitted ? <div className="form-success"><Check size={18} /><p>Hvala. Upit je zabilježen.<br />Javite nam se i direktno na 069/905-405.</p></div> : <><div className="form-row"><label>Ime i prezime<input name="name" required placeholder="Vaše ime" /></label><label>Telefon<input name="phone" required placeholder="069 / ..." /></label></div><label>Email<input name="email" type="email" placeholder="vas@email.com" /></label><label>Vrsta radova<select name="service" defaultValue=""><option value="" disabled>Izaberite uslugu</option><option>Grubi građevinski radovi</option><option>Tesarski radovi</option><option>Fasade</option><option>Keramika</option></select></label><label>Poruka<textarea name="message" required placeholder="Kratak opis objekta i radova" rows={4} /></label><button className="button button-accent form-submit" type="submit">Pošalji upit <Send size={15} /></button></>}</form></div></section>
       </main>
 
       <footer className="site-footer"><div className="container footer-grid"><div><button className="brand footer-brand" onClick={() => goTo("top")}><img className="site-logo footer-logo" src="/assets/bg-gradnja-logo.jpeg" alt="BG Gradnja logo" /></button><p className="footer-note">Grubi i završni građevinski radovi<br />u Herceg Novom i okolini.</p></div><div><p className="footer-label">MAPA SAJTA</p><div className="footer-links">{navItems.map(([label, id]) => <button key={id} onClick={() => goTo(id)}>{label}</button>)}</div></div><div><p className="footer-label">KONTAKT</p><a href="tel:+38269905405">069/905-405</a><a href="mailto:gvozdenovicblagoje982@gmail.com">gvozdenovicblagoje982@gmail.com</a><a href="https://www.instagram.com/bg.gradnja/" target="_blank" rel="noreferrer">Instagram / @bg.gradnja</a></div></div><div className="container footer-bottom"><span>© 2026 BG-GRADNJA DOO</span><span>Logo i paleta preuzeti iz dostavljenog brenda</span></div></footer>
